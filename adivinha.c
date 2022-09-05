@@ -1,24 +1,29 @@
 #include <stdio.h>
 
-/*constante numero de tentativas para usar como limite no for*/
-//#define NUMERO_DE_TENTATIVAS 3
+/*
+constante numero de tentativas para usar como limite no for
+
+#define NUMERO_DE_TENTATIVAS 3
+
+*/
 
 int main () {
-	
+	//prints header
 	printf("######################################\n");
 	printf("## BEM VINDO AO JOGO DE ADIVINHACAO ##\n");
 	printf("######################################\n");
 	
-	int numero = 9;
+	int numero = 42;
 	int chute;
     
-    int ganhou = 0;
     int tentativas = 1;
     
+    int pontos = 1000;
     
-    /*for Looping contado*/
-    //for(int i = 1; i <= NUMERO_DE_TENTATIVAS; i++) 
-    while (ganhou == 0){
+    
+    /*for Looping contado
+      for(int i = 1; i <= NUMERO_DE_TENTATIVAS; i++) */
+    while (1){
         
         //printf("Tentativa %d de %d\n", i, NUMERO_DE_TENTATIVAS);
         printf("Tentativa numero: %d\n", tentativas);
@@ -29,27 +34,21 @@ int main () {
         
         if(chute < 0) {
             printf("Somente numeros positivos\n");
-            //i--;
-            /*para a execucao do bloco de codigo mas o for continua*/
+
             continue;
         }
         
         int acertou = (chute == numero);
         int maior = chute > numero;
-        //int menor = chute < numero;
-        
-        /*printing boolean variable that shows 1 for true and 0 for false*/
-        //printf("Acertou: %d\n", acertou);
+   
         
         if (acertou) {
             printf("Voce acertou! Parabens!\n\n");
             
-            //break;
-            ganhou = 1;
+            break;
             
         } else if(maior){ 
-            /* a variavel maior existe somente no escopo do else 
-            int maior = chute > numero;*/
+
             printf("Voce errou! Seu chute foi maior do que o numero secreto\n\n");
             
         } else  {
@@ -57,10 +56,14 @@ int main () {
         } 
         
         tentativas++;
+        
+        int pontosperdidos = (chute - numero) / 2;
+        pontos -= pontosperdidos;
     }
     
     printf("Fim de jogo\n");
-    printf("Voce acertou em %d tentativas", tentativas-1);
+    printf("Voce acertou em %d tentativas\n", tentativas-1);
+    printf("Total de pontos: %d", pontos);
 }
     
     
