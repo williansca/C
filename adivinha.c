@@ -1,21 +1,21 @@
 #include <stdio.h>
-
 #include <stdlib.h>
+#include <time.h>
 
-/*
-constante numero de tentativas para usar como limite no for
-
-#define NUMERO_DE_TENTATIVAS 3
-
-*/
 
 int main () {
 	//prints header
 	printf("######################################\n");
 	printf("## BEM VINDO AO JOGO DE ADIVINHACAO ##\n");
 	printf("######################################\n");
+    
+    /*needed to generate random numbers*/
+    int segundos = time(0);
+    srand(segundos);
+    
+    int numerogrande = rand();
 	
-	int numero = 42;
+	int numero = numerogrande % 100;
 	int chute;
     
     int tentativas = 1;
@@ -23,11 +23,9 @@ int main () {
     double pontos = 1000;
     
     
-    /*for Looping contado
-      for(int i = 1; i <= NUMERO_DE_TENTATIVAS; i++) */
+ 
     while (1){
         
-        //printf("Tentativa %d de %d\n", i, NUMERO_DE_TENTATIVAS);
         printf("Tentativa numero: %d\n", tentativas);
         
         printf("Qual o seu chute?: ");
