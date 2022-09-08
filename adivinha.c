@@ -18,7 +18,7 @@ int main () {
     
     int tentativas = 1;
     
-    int pontos = 1000;
+    double pontos = 1000;
     
     
     /*for Looping contado
@@ -28,7 +28,7 @@ int main () {
         //printf("Tentativa %d de %d\n", i, NUMERO_DE_TENTATIVAS);
         printf("Tentativa numero: %d\n", tentativas);
         
-        printf("Chute um numero de 1 a 10: ");
+        printf("Qual o seu chute?: ");
         scanf("%d", &chute);
         printf("Seu chute foi: %d\n", chute);
         
@@ -57,13 +57,15 @@ int main () {
         
         tentativas++;
         
-        int pontosperdidos = (chute - numero) / 2;
+        double pontosperdidos = (chute - numero) / 2.0;
         pontos -= pontosperdidos;
     }
     
     printf("Fim de jogo\n");
-    printf("Voce acertou em %d tentativas\n", tentativas-1);
-    printf("Total de pontos: %d", pontos);
+    printf("Voce acertou em %d tentativas\n", tentativas);
+    
+    /*f mostra valor double, .1 antes é para o total de casas apos o ponto*/
+    printf("Total de pontos: %.1f\n", pontos);
 }
     
     
