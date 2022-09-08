@@ -1,5 +1,7 @@
 #include <stdio.h>
 
+#include <stdlib.h>
+
 /*
 constante numero de tentativas para usar como limite no for
 
@@ -57,7 +59,7 @@ int main () {
         
         tentativas++;
         
-        double pontosperdidos = (chute - numero) / 2.0;
+        double pontosperdidos = abs(chute - numero) / (double)2;
         pontos -= pontosperdidos;
     }
     
